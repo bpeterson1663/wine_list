@@ -30,7 +30,7 @@ const DB = [
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        wine: {
+        wines: {
             type: new GraphQLList(WineType),
             resolve: (parentValue, args) => {
                 return DB
