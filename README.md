@@ -9,5 +9,20 @@ Three components
 Database
 Three Tables
 - Wines
-- Users
+    - Name
+    - Winery
+    - Varietal
+    - Vintage
+    - Price
+    - Description
+    - Tasting Notes
+- Users (anonymous for now, generate a session id that is stored in local storage)
+    - sessionId (session id)
 - Favorites
+    - sessionId - key of sessionId
+    - wineId - id of wine
+
+For orchestration use Docker Compose
+    - nginx for ui
+    - node for Graphql
+    - postgres for db
