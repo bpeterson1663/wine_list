@@ -16,14 +16,14 @@ module.exports = {
     resolve: { extensions: ['.ts', '.tsx', '.js'] },
     output: {
         path: path.resolve(__dirname, 'dist/'),
-        publicPath: '/dist/',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: path.join(__dirname, 'public/'),
+        contentBase: path.join(__dirname, '/'),
         compress: true,
         port: 9000,
     },
-    plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') })]
+    plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'index.html') })]
 
 }
