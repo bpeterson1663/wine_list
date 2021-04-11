@@ -5,4 +5,21 @@ services:
             context: ./client
             dockerfile: Dockerfile
         ports: 
-            - 80:80 
+            - 80:80
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        depends_on: 
+            - db
+        ports:
+            - 4000:4000
+        command: bash -c "/usr/wait-for-it.sh --timeout=0 db:5432 && node server.js"
+    db:
+        image: postgres:13.2
+        restart: always
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_USER=my_username
+            - POSTGRES_PASSWORD=mysecretpassword
