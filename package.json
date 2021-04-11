@@ -1,0 +1,29 @@
+{
+  "name": "wine_list",
+  "version": "1.0.0",
+  "description": "A React app using GraphQL and Postgres to display a list of wines and allow user to favorite them",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|tsx|json)\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpeterson1663/wine_list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bpeterson1663/wine_list/issues"
+  },
+  "homepage": "https://github.com/bpeterson1663/wine_list#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "prettier": "^2.2.1"
+  }
+}
