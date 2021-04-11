@@ -12,13 +12,13 @@ const createWineTable = `
     );
 `
 const insertWine = (name, winery, vintage) => {
-    return`
+  return `
         INSERT INTO wines (${name}, ${winery}, ${vintage})
         VALUES ('Dummy Wine 4', 'Dummy Winery 4', '2016')
     `
 }
 module.exports = {
-    selectAllWines,
-    createWineTable,
-    insertWine
+  selectAllWines,
+  createWineTable,
+  insertWine,
 }

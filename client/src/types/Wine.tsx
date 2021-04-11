@@ -1,6 +1,6 @@
 export interface WineT {
-    id: string,
-    name: string,
-    winery: string,
-    vintage: string
+  id: string
+  name: string
+  winery: string
+  vintage: string
 }
