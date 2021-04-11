@@ -4,7 +4,7 @@ const { Client } = require('pg')
 const { selectAllWines } = require('../sql/queries') 
 
 const client = new Client({
-    host: '0.0.0.0',
+    host: 'db',
     port: 5432
 })
 client.connect(err => {
@@ -27,6 +27,7 @@ const RootQuery = new GraphQLObjectType({
         wines: {
             type: new GraphQLList(WineType),
             resolve: () => {
+                // return [{name: "Wine 1", id: "1", winery: "Winery 1", vintage: "2021"}]
                 return client.query(selectAllWines).then(res => {
                     return res.rows
                 })
