@@ -8,6 +8,10 @@ const WineType = new GraphQLObjectType({
     name: { type: GraphQLString },
     winery: { type: GraphQLString },
     vintage: { type: GraphQLString },
+    varietal: { type: GraphQLString },
+    price: { type: GraphQLString },
+    description: { type: GraphQLString },
+    image: { type: GraphQLString },
   }),
 })
 
