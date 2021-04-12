@@ -2,8 +2,8 @@ const selectAllWines = `
     SELECT *
     FROM wines
 `
-const selectWineByVarietal =  (varietal) => {
-    return `
+const selectWineByVarietal = (varietal) => {
+  return `
         SELECT *
         FROM wines
         WHERE varietal = '${varietal}'
@@ -47,5 +47,5 @@ module.exports = {
   insertWine,
   alterTable,
   deleteWine,
-  selectWineByVarietal
+  selectWineByVarietal,
 }

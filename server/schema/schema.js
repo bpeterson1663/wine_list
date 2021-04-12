@@ -25,10 +25,10 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(WineType),
       args: { varietal: { type: GraphQLString } },
       resolve: (parentValue, args) => {
-        if(args.varietal){
-          return client.query(selectWineByVarietal(args.varietal)).then(res => res.rows)
-        }else {
-          return client.query(selectAllWines).then((res) =>  res.rows)
+        if (args.varietal) {
+          return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
+        } else {
+          return client.query(selectAllWines).then((res) => res.rows)
         }
       },
     },
@@ -40,7 +40,7 @@ const RootQuery = new GraphQLObjectType({
           .then((res) => res.rows)
           .catch((err) => console.log('ERROR: ', err))
       },
-    }
+    },
   },
 })
 

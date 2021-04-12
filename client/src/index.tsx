@@ -11,7 +11,9 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Typography variant="h2" component="h2">Wine List</Typography>
+      <Typography variant="h2" component="h2">
+        Wine List
+      </Typography>
       <WineList />
     </ApolloProvider>
   )

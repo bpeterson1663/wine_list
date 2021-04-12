@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
-  }
+  },
 }))
 const WineList: React.FC = (): JSX.Element => {
   const { loading, data, error } = useQuery(fetchAllVarietals)
@@ -34,9 +34,9 @@ const WineList: React.FC = (): JSX.Element => {
   return (
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
-      {varietals.map((wine: Varietal) => (
-        <GridListTile key={wine.varietal}>
-         <img src={wine.image} alt={wine.varietal} />
+        {varietals.map((wine: Varietal) => (
+          <GridListTile key={wine.varietal}>
+            <img src={wine.image} alt={wine.varietal} />
             <GridListTileBar
               title={wine.varietal}
               actionIcon={
@@ -45,10 +45,10 @@ const WineList: React.FC = (): JSX.Element => {
                 </IconButton>
               }
             />
-        </GridListTile>
-      ))}
-    </GridList>
-      </div>
+          </GridListTile>
+        ))}
+      </GridList>
+    </div>
   )
 }
 
