@@ -3,4 +3,6 @@ export interface WineT {
   name: string
   winery: string
   vintage: string
+  varietal: string
+  image: string
 }
