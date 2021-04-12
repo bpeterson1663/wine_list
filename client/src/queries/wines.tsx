@@ -6,6 +6,15 @@ export const fetchAllWines = gql`
       id
       name
       vintage
+      varietal
+      image
+    }
+  }
+`
+export const fetchAllVarietals = gql`
+  {
+    varietals {
+      varietal
     }
   }
 `
