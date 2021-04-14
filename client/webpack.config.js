@@ -3,14 +3,37 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
   entry: './src/index.tsx',
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
         loader: 'babel-loader',
+        exclude: /(node_modules|bower_components)/,
+      },
+      {
+        test: /\.js$/,
+        use: ['source-map-loader'],
+        exclude: /(node_modules|bower_components)/,
+        enforce: 'pre',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        options: { presets: ['@babel/env'] },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
       },
     ],
   },
@@ -21,10 +44,10 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.join(__dirname, '/'),
+    contentBase: path.join(__dirname, 'public/'),
     compress: true,
     port: 9000,
     historyApiFallback: true,
   },
-  plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'index.html') })],
+  plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') })],
 }

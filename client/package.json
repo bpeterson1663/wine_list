@@ -18,7 +18,8 @@
     "graphql": "^15.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "style-loader": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
@@ -32,10 +33,12 @@
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.1",
     "eslint": "^7.24.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "source-map-loader": "^2.0.1",
     "ts-loader": "^8.1.0",
     "typescript": "^4.2.4",
     "webpack": "^5.31.2",
