@@ -13,6 +13,7 @@ const fetchWinesByGrape = gql`
       name
       image
       varietal
+      winery
     }
   }
 `
@@ -26,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     width: 900,
+  },
+  imageContainer: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -48,18 +54,19 @@ const ListByVarietal: React.FC = (): JSX.Element => {
   })
   if (loading) return <div>...Loading</div>
   if (error) return <div>An error occured {error.message}</div>
-  console.log('wines: ', data.wines)
   return (
     <div className={classes.root}>
       <GridList cellHeight={400} className={classes.gridList}>
         {data.wines.map((wine: WineT) => (
           <GridListTile key={wine.id}>
-            <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+            <div className={classes.imageContainer}>
+              <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+            </div>
             <GridListTileBar
-              title={wine.varietal}
+              title={`${wine.name} - ${wine.winery}`}
               actionIcon={
-                <Link to={`/varietal?grape=${wine.varietal}`}>
-                  <IconButton aria-label={`info about ${wine.varietal}`} className={classes.icon}>
+                <Link to={`/wine?name=${wine.name}`}>
+                  <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
                     <InfoIcon />
                   </IconButton>
                 </Link>
