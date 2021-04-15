@@ -6,6 +6,7 @@ import ListByVarietal from './components/ListByVarietal'
 import Navigation from './components/Navigation'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
+import WineInfo from './components/WineInfo'
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
@@ -27,6 +28,7 @@ const App: React.FC = (): JSX.Element => {
           <Switch>
             <Route path="/varietals" exact component={ListVarietals} />
             <Route path="/varietal" component={ListByVarietal} />
+            <Route path="/wine/:id" component={WineInfo} />
             <Route path="/" />
           </Switch>
         </BrowserRouter>

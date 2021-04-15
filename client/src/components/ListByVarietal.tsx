@@ -65,7 +65,7 @@ const ListByVarietal: React.FC = (): JSX.Element => {
             <GridListTileBar
               title={`${wine.name} - ${wine.winery}`}
               actionIcon={
-                <Link to={`/wine?name=${wine.name}`}>
+                <Link to={`/wine/${wine.id}`}>
                   <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
                     <InfoIcon />
                   </IconButton>
