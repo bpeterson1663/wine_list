@@ -23,12 +23,12 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     wines: {
       type: new GraphQLList(WineType),
-      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString} },
+      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString } },
       resolve: (parentValue, args) => {
         if (args.varietal) {
           return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
-        }else if(args.id){
-          return client.query(`SELECT * FROM wines WHERE id = '${args.id}'`).then(res => res.rows)
+        } else if (args.id) {
+          return client.query(`SELECT * FROM wines WHERE id = '${args.id}'`).then((res) => res.rows)
         } else {
           return client.query(selectAllWines).then((res) => res.rows)
         }
