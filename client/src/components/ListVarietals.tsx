@@ -1,11 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
-import { GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
+import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
 import { fetchAllVarietals } from '../queries/wines'
 import Varietal from '../models/Varietal'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +24,12 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255, 255, 255, 0.54)',
   },
 }))
-const ListByVarietal: React.FC = (): JSX.Element => {
+
+interface ListVarietalsT {
+  history: { goBack: () => void }
+}
+
+const ListVarietals: React.FC<ListVarietalsT> = ({ history }): JSX.Element => {
   const { loading, data, error } = useQuery(fetchAllVarietals)
   const classes = useStyles()
 
@@ -33,26 +40,35 @@ const ListByVarietal: React.FC = (): JSX.Element => {
   data.varietals.forEach((varietal: Varietal) => varietals.push(new Varietal(varietal.varietal)))
 
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        {varietals.map((grape: Varietal) => (
-          <GridListTile key={grape.varietal}>
-            <img src={grape.image} alt={grape.varietal} />
-            <GridListTileBar
-              title={grape.varietal}
-              actionIcon={
-                <Link to={`/varietal?grape=${grape.varietal}`}>
-                  <IconButton aria-label={`info about ${grape.varietal}`} className={classes.icon}>
-                    <InfoIcon />
-                  </IconButton>
-                </Link>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
+    <>
+      <IconButton onClick={() => history.goBack()}>
+        <ArrowBackIcon />
+      </IconButton>
+      <Container className={classes.root}>
+        <GridList cellHeight={180} className={classes.gridList}>
+          {varietals.map((grape: Varietal) => (
+            <GridListTile key={grape.varietal}>
+              <img src={grape.image} alt={grape.varietal} />
+              <GridListTileBar
+                title={grape.varietal}
+                actionIcon={
+                  <Link to={`/varietal?grape=${grape.varietal}`}>
+                    <IconButton aria-label={`info about ${grape.varietal}`} className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                  </Link>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </Container>
+    </>
   )
 }
-
-export default ListByVarietal
+ListVarietals.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+}
+export default ListVarietals

@@ -1,10 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useLocation, Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
-import { GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
+import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
 import { WineT } from '../types/types'
 import InfoIcon from '@material-ui/icons/Info'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const fetchWinesByGrape = gql`
   query wines($varietal: String!) {
@@ -45,7 +47,12 @@ const useStyles = makeStyles((theme) => ({
 function useQueryParam() {
   return new URLSearchParams(useLocation().search)
 }
-const ListByVarietal: React.FC = (): JSX.Element => {
+
+interface ListByVarietalT {
+  history: { goBack: () => void }
+}
+
+const ListByVarietal: React.FC<ListByVarietalT> = ({ history }): JSX.Element => {
   const classes = useStyles()
   const query = useQueryParam()
 
@@ -55,28 +62,37 @@ const ListByVarietal: React.FC = (): JSX.Element => {
   if (loading) return <div>...Loading</div>
   if (error) return <div>An error occured {error.message}</div>
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={400} className={classes.gridList}>
-        {data.wines.map((wine: WineT) => (
-          <GridListTile key={wine.id}>
-            <div className={classes.imageContainer}>
-              <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
-            </div>
-            <GridListTileBar
-              title={`${wine.name} - ${wine.winery}`}
-              actionIcon={
-                <Link to={`/wine/${wine.id}`}>
-                  <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
-                    <InfoIcon />
-                  </IconButton>
-                </Link>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
+    <>
+      <IconButton onClick={() => history.goBack()}>
+        <ArrowBackIcon />
+      </IconButton>
+      <Container className={classes.root}>
+        <GridList cellHeight={400} className={classes.gridList}>
+          {data.wines.map((wine: WineT) => (
+            <GridListTile key={wine.id}>
+              <div className={classes.imageContainer}>
+                <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+              </div>
+              <GridListTileBar
+                title={`${wine.name} - ${wine.winery}`}
+                actionIcon={
+                  <Link to={`/wine/${wine.id}`}>
+                    <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                  </Link>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </Container>
+    </>
   )
 }
-
+ListByVarietal.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+}
 export default ListByVarietal
