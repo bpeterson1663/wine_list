@@ -1,8 +1,9 @@
 const graphql = require('graphql')
 const WineType = require('./types/WineType')
 const VarietalType = require('./types/VarietalType')
+const VintageType = require('./types/VintageType')
 const { Client } = require('pg')
-const { selectAllWines, selectWineByVarietal } = require('../sql/queries')
+const { selectAllWines, selectWineByVarietal, selectWineByVintage } = require('../sql/queries')
 
 const client = new Client({
   host: '0.0.0.0', //TODO: dynamically set to db for docker-compose
@@ -23,10 +24,12 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     wines: {
       type: new GraphQLList(WineType),
-      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString } },
+      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString }, vintage: { type: GraphQLString } },
       resolve: (parentValue, args) => {
         if (args.varietal) {
           return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
+        } else if (args.vintage) {
+          return client.query(selectWineByVintage(args.vintage)).then((res) => res.rows)
         } else if (args.id) {
           return client.query(`SELECT * FROM wines WHERE id = '${args.id}'`).then((res) => res.rows)
         } else {
@@ -39,6 +42,15 @@ const RootQuery = new GraphQLObjectType({
       resolve: () => {
         return client
           .query('SELECT DISTINCT varietal FROM wines')
+          .then((res) => res.rows)
+          .catch((err) => console.log('ERROR: ', err))
+      },
+    },
+    vintages: {
+      type: new GraphQLList(VintageType),
+      resolve: () => {
+        return client
+          .query('SELECT DISTINCT vintage FROM wines')
           .then((res) => res.rows)
           .catch((err) => console.log('ERROR: ', err))
       },

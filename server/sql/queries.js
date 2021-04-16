@@ -9,6 +9,15 @@ const selectWineByVarietal = (varietal) => {
         WHERE varietal = '${varietal}'
     `
 }
+
+const selectWineByVintage = (vintage) => {
+  return `
+        SELECT *
+        FROM wines
+        WHERE vintage = '${vintage}'
+    `
+}
+
 const createWineTable = `
     CREATE TABLE wines (
         id SERIAL,
@@ -48,4 +57,5 @@ module.exports = {
   alterTable,
   deleteWine,
   selectWineByVarietal,
+  selectWineByVintage,
 }
