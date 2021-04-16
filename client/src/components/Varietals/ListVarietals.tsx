@@ -5,8 +5,8 @@ import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
 import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
-import { fetchAllVarietals } from '../queries/wines'
-import Varietal from '../models/Varietal'
+import { fetchAllVarietals } from '../../queries/wines'
+import Varietal from '../../models/Varietal'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const useStyles = makeStyles((theme) => ({

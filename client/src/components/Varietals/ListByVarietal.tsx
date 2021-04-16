@@ -4,7 +4,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
 import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
-import { WineT } from '../types/types'
+import { WineT } from '../../types/types'
 import InfoIcon from '@material-ui/icons/Info'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
