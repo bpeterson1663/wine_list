@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import ListVarietals from './components/Varietals/ListVarietals'
 import ListByVarietal from './components/Varietals/ListByVarietal'
+import ListVintages from './components/Vintage/ListVintages'
+import ListByVintage from './components/Vintage/ListByVintage'
 import Navigation from './components/Navigation'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -27,7 +29,11 @@ const App: React.FC = (): JSX.Element => {
 
           <Switch>
             <Route path="/varietals" exact component={ListVarietals} />
+            <Route path="/vintages" exact component={ListVintages} />
+
             <Route path="/varietal" component={ListByVarietal} />
+            <Route path="/vintage" component={ListByVintage} />
+
             <Route path="/wine/:id" component={WineInfo} />
             <Route path="/" />
           </Switch>

@@ -18,3 +18,11 @@ export const fetchAllVarietals = gql`
     }
   }
 `
+
+export const fetchAllVintages = gql`
+  {
+    vintages {
+      vintage
+    }
+  }
+`

@@ -15,6 +15,9 @@ const Navigation: React.FC = (): JSX.Element => {
         <Link to="/varietals" style={{ textDecoration: 'none' }}>
           <Button style={{ color: 'white' }}>Varietals</Button>
         </Link>
+        <Link to="/vintages" style={{ textDecoration: 'none' }}>
+          <Button style={{ color: 'white' }}>Vintages</Button>
+        </Link>
       </Toolbar>
     </AppBar>
   )
