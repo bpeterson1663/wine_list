@@ -27,7 +27,11 @@ const RootQuery = new GraphQLObjectType({
       args: { varietal: { type: GraphQLString }, id: { type: GraphQLString }, vintage: { type: GraphQLString } },
       resolve: (parentValue, args) => {
         if (args.varietal) {
-          return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
+          if(args.varietal === 'All Varietals'){
+            return client.query(selectAllWines).then((res) => res.rows)
+          }else {
+            return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
+          }
         } else if (args.vintage) {
           return client.query(selectWineByVintage(args.vintage)).then((res) => res.rows)
         } else if (args.id) {
