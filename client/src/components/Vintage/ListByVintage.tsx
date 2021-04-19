@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
-import InfoIcon from '@material-ui/icons/Info'
+import { IconButton } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import { WineT } from '../../types/types'
+import WineGridList from '../Common/WineGridList'
 
 const fetchWinesByVintage = gql`
   query wines($vintage: String!) {
@@ -64,27 +63,7 @@ const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <Container className={classes.root}>
-        <GridList cellHeight={400} className={classes.gridList}>
-          {data.wines.map((wine: WineT) => (
-            <GridListTile key={wine.id}>
-              <div className={classes.imageContainer}>
-                <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
-              </div>
-              <GridListTileBar
-                title={`${wine.name} - ${wine.winery}`}
-                actionIcon={
-                  <Link to={`/wine/${wine.id}`}>
-                    <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
-                      <InfoIcon />
-                    </IconButton>
-                  </Link>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </Container>
+      <WineGridList data={data.wines} />
     </>
   )
 }
