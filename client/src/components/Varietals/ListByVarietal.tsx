@@ -1,22 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { IconButton } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import WineGridList from '../Common/WineGridList'
-
-const fetchWinesByGrape = gql`
-  query wines($varietal: String!) {
-    wines(varietal: $varietal) {
-      id
-      name
-      image
-      varietal
-      winery
-    }
-  }
-`
+import { fetchWinesByGrape } from '../../queries/wines'
 
 function useQueryParam() {
   return new URLSearchParams(useLocation().search)

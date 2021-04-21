@@ -26,3 +26,27 @@ export const fetchAllVintages = gql`
     }
   }
 `
+
+export const fetchWinesByGrape = gql`
+  query wines($varietal: String!) {
+    wines(varietal: $varietal) {
+      id
+      name
+      image
+      varietal
+      winery
+    }
+  }
+`
+
+export const fetchWinesByVintage = gql`
+  query wines($vintage: String!) {
+    wines(vintage: $vintage) {
+      id
+      name
+      image
+      varietal
+      winery
+    }
+  }
+`
