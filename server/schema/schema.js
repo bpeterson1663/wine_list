@@ -8,7 +8,7 @@ const { selectAllWines, selectWineByVarietal, selectWineByVintage } = require('.
 const client = new Client({
   host: '0.0.0.0', //TODO: dynamically set to db for docker-compose
   port: 5432,
-  db: 'winedb'
+  db: 'winedb',
 })
 client.connect((err) => {
   if (err) {
