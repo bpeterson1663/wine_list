@@ -7,7 +7,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61369_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This is a graceful Chardonnay with generous aromas of Asian pear, honeydew melon and lime along with a touch of hazelnut and vanilla oak. Medium-bodied, the wine has a silky texture and mid palate leading to a soft finish with a touch of creamy oak.",
       "price": "34",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "DANIKA RANCH",
@@ -16,7 +17,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61473_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "Rich and full-bodied, this Chardonnay highlights the characteristics of our Danika Ranch with notes of ripe mango, pineapple, crème brulee and jasmine. The palate has a rich texture with nice acidity and a touch of cinnamon, flint and dried hay on the finish.",
       "price": "45",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "RANCHO CHIMILES",
@@ -25,7 +27,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F62850_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This Semillon opens with fresh aromas of lychee, passion fruit, lemon zest and fig. Medium-bodied with fresh acidity, the palate is savory with a lasting bright finish.",
       "price": "40",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "AVETA",
@@ -34,7 +37,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F65830_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "The 2018 AVETA Sauvignon Blanc offers an expressive nose of tangerine, papaya, guava, orange blossom, pineapple and lemongrass. The wine has bright acidity and a flavorful mid-palate that leads to a long finish filled with orange zest and kiwi flavors.",
       "price": "30",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "Winemaker Series Lot 1",
@@ -43,7 +47,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F62868_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This Cabernet Sauvignon delivers generous aromas of blackberry jam, ripe blueberry, fig, orange peel and a touch of crème brulee. Made in a bold style, this rich and concentrated wine has layers of dark fruit along with savory tannins and a powerful finish. Enjoy with herb-crusted pork roast, duck confit or grilled Portobello mushrooms tossed in olive oil with fresh rosemary.",
       "price": "80",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "ARCADIA VINEYARD",
@@ -52,7 +57,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61487_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This ARCADIA VINEYARD Chardonnay offers delicate, expressive aromas of stone fruit, pear, honeydew melon and jasmine. The wine is vibrant with refreshing acidity on the palate with nice fruit and floral flavors. The mouthfeel is silky with a lingering finish.",
       "price": "65",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "ARMILLARY",
@@ -61,7 +67,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F57863_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This wine has a balanced nose with cassis, cinnamon, nutmeg and ripe persimmon notes. Full-bodied, the wine has a flavorful entrance filled with boysenberry, mocha and spice along with a structured mid-palate and long finish.",
       "price": "145",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "FAY",
@@ -70,7 +77,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61511_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "Inviting aromas of ripe berries, figs, plums, candied cherries, strawberry preserves, and a touch of a jasmine perfume. The wine has a bright and lively entry and mid-palate, which is nicely-balanced with rich polished tannins and cherry pie aftertaste.",
       "price": "150",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "S.L.V.",
@@ -79,7 +87,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61519_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "Generous aromas of dark chocolate, graphite, truffle, dried fig and a lovely touch of violet. Rich and refined on the mid-palate, the wine has a long and well-structured finish with a dusty cocoa powder note. The tannin structure, rich dark fruit, and pleasing minerality point to this wine’s ability to age.",
       "price": "195",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "CASK 23",
@@ -88,7 +97,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F61526_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "The wine opens with a rich berry medley and silky, layered aromas of dates, cocoa spice, cassis, black olive, and pomegranate. The palate is full in structure, yet balanced and persistent with a lush texture. Flavors of currant, dark cherry, and spice linger on the finish.",
       "price": "305",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "Winemaker Series Lot 1",
@@ -97,7 +107,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F62860_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This Malbec has spicy aromas of ripe plum and dark fruit along with hints of cinnamon, floral and tea leaf. Rich in texture, the wine coats the palate with raspberry jam and dark chocolate flavors that are supported by fine-grained tannins.",
       "price": "60",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "Winemaker Series",
@@ -106,7 +117,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F57823_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This Petit Verdot has a perfumed nose filled with floral and spice along with notes of cassis, green tea, dried lavender and sage. The wine is dark in color and rich with polished tannins and a concentrated finish.",
       "price": "65",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "HEART of FAY",
@@ -115,7 +127,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F57867_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "This FAY Cabernet Sauvignon has perfumed aromas along with hints of flint, cedar, cinnamon and olive. The wine is plush and fruity with a round mid-palate that leads to a long finish with a touch of oak spice.",
       "price": "155",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     },
     {
       "name": "Artemis",
@@ -124,7 +137,8 @@
       "image": "https://images-us-prod.cms.commerce.dynamics.com/cms/api/mhtmhnbtbn/imageFileData/search?fileName=/Products%2F65210_000_001.png&w=0&h=772&q=80&m=6&f=png",
       "description": "The 2018 ARTEMIS Cabernet Sauvignon delivers expressive aromas of ripe raspberry, dark cherry and blackberry along with hints of cedar and spice. The mid-palate is pleasant and round with flavors of dark chocolate, plum, dried fruit and toasted oak. The finish is rich and lingering.",
       "price": "75",
-      "winery": "Stags Leap Wine Cellars"
+      "winery": "Stags Leap Wine Cellars",
+      "region": "Napa Valley"
     }
   ]
 }
