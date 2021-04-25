@@ -49,6 +49,7 @@ const WineInfo: React.FC<WineInfoT> = ({ history }): JSX.Element => {
         <Paper elevation={3} className={classes.paperContainer}>
           <h3>{wine.winery}</h3>
           <h3>{wine.name}</h3>
+          <h3>{wine.region}</h3>
           <h3>{wine.varietal}</h3>
           <h4>{wine.vintage}</h4>
           <h5>${wine.price}</h5>
