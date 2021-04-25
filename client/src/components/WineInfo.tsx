@@ -1,23 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Paper, Container, IconButton } from '@material-ui/core'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { useParams } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-const fetchWine = gql`
-  query wines($id: String!) {
-    wines(id: $id) {
-      name
-      winery
-      vintage
-      price
-      varietal
-      description
-      image
-    }
-  }
-`
+import { fetchWine } from '../queries/wines'
+
 const useStyles = makeStyles(() => ({
   wineBottle: {
     width: '120px',
