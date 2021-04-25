@@ -28,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-interface ListByVintageT {
+interface ListVintagesT {
   history: { goBack: () => void }
 }
 
-const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
+const ListVintages: React.FC<ListVintagesT> = ({ history }): JSX.Element => {
   const { loading, data, error } = useQuery(fetchAllVintages)
   const classes = useStyles()
 
@@ -65,9 +65,9 @@ const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
     </>
   )
 }
-ListByVintage.propTypes = {
+ListVintages.propTypes = {
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
 }
-export default ListByVintage
+export default ListVintages
