@@ -2,8 +2,9 @@ const graphql = require('graphql')
 const WineType = require('./types/WineType')
 const VarietalType = require('./types/VarietalType')
 const VintageType = require('./types/VintageType')
+const RegionType = require('./types/RegionType')
 const { Client } = require('pg')
-const { selectAllWines, selectWineByVarietal, selectWineByVintage } = require('../sql/queries')
+const { selectAllWines, selectWineByVarietal, selectWineByVintage, selectWineByRegion } = require('../sql/queries')
 
 const client = new Client({
   host: '0.0.0.0', //TODO: dynamically set to db for docker-compose
@@ -25,7 +26,7 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     wines: {
       type: new GraphQLList(WineType),
-      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString }, vintage: { type: GraphQLString } },
+      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString }, vintage: { type: GraphQLString }, region: { type: GraphQLString } },
       resolve: (parentValue, args) => {
         if (args.varietal) {
           if (args.varietal === 'All Varietals') {
@@ -33,6 +34,8 @@ const RootQuery = new GraphQLObjectType({
           } else {
             return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
           }
+        } else if(args.region) {
+          return client.query(selectWineByRegion(args.region)).then((res) => res.rows)
         } else if (args.vintage) {
           return client.query(selectWineByVintage(args.vintage)).then((res) => res.rows)
         } else if (args.id) {
@@ -56,6 +59,15 @@ const RootQuery = new GraphQLObjectType({
       resolve: () => {
         return client
           .query('SELECT DISTINCT vintage FROM wines')
+          .then((res) => res.rows)
+          .catch((err) => console.log('ERROR: ', err))
+      },
+    },
+    regions: {
+      type: new GraphQLList(RegionType),
+      resolve: () => {
+        return client
+          .query('SELECT DISTINCT region FROM wines')
           .then((res) => res.rows)
           .catch((err) => console.log('ERROR: ', err))
       },

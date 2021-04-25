@@ -18,6 +18,14 @@ const selectWineByVintage = (vintage) => {
     `
 }
 
+const selectWineByRegion = (region) => {
+    return `
+        SELECT *
+        FROM wines
+        WHERE region = '${region}'
+    `
+}
+
 const createWineTable = `
     CREATE TABLE wines (
         id SERIAL,
@@ -33,8 +41,9 @@ const createWineTable = `
 `
 // Used for development purposes
 const alterTable = `
-    ALTER TABLE wines 
-    DROP COLUMN notes;
+    UPDATE wines 
+    SET region = 'Napa Valley'
+    WHERE region IS NULL;
 
 `
 const insertWine = (name, winery, vintage, varietal, price, description, image) => {
@@ -58,4 +67,5 @@ module.exports = {
   deleteWine,
   selectWineByVarietal,
   selectWineByVintage,
+  selectWineByRegion
 }
