@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import InfoIcon from '@material-ui/icons/Info'
 import { fetchAllVintages } from '../../queries/wines'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
+import { Container, GridList, GridListTile, GridListTileBar, IconButton, Typography } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'center'
   },
   gridList: {
     width: 900,
@@ -39,6 +43,7 @@ const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
+      <Typography variant="h6" className={classes.header}>Vintages</Typography>
       <Container className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           {data.vintages.map((year: { vintage: string }) => (

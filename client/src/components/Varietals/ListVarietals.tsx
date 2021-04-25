@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
+import { Container, GridList, GridListTile, GridListTileBar, IconButton, Typography } from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
 import { fetchAllVarietals } from '../../queries/wines'
 import Varietal from '../../models/Varietal'
@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'center'
   },
   gridList: {
     width: 900,
@@ -44,6 +48,7 @@ const ListVarietals: React.FC<ListVarietalsT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
+      <Typography variant="h6" className={classes.header}>Varietals</Typography>
       <Container className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           {varietals.map((grape: Varietal) => (

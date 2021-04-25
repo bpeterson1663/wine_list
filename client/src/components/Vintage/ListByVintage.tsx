@@ -27,7 +27,7 @@ const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <WineGridList data={data.wines} />
+      <WineGridList data={data.wines} title={query.get('year')} />
     </>
   )
 }

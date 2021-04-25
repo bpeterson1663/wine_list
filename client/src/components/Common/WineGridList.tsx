@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core'
+import { Container, GridList, GridListTile, GridListTileBar, IconButton, Typography } from '@material-ui/core'
 import { WineT } from '../../types/types'
 import InfoIcon from '@material-ui/icons/Info'
 
@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'center'
   },
   gridList: {
     width: 900,
@@ -32,11 +36,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 interface WineGridListT {
-  data: WineT[]
+  data: WineT[],
+  title: string | null
 }
-const WineGridList: React.FC<WineGridListT> = ({ data }): JSX.Element => {
+const WineGridList: React.FC<WineGridListT> = ({ data, title }): JSX.Element => {
   const classes = useStyles()
   return (
+    <>
+    <Typography variant="h6" className={classes.header}>{title}</Typography>
     <Container className={classes.root}>
       <GridList cellHeight={400} className={classes.gridList}>
         {data.map((wine: WineT) => (
@@ -58,10 +65,12 @@ const WineGridList: React.FC<WineGridListT> = ({ data }): JSX.Element => {
         ))}
       </GridList>
     </Container>
+    </>
   )
 }
 
 WineGridList.propTypes = {
   data: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired
 }
 export default WineGridList

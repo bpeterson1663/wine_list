@@ -17,7 +17,6 @@ interface ListByVarietalT {
 
 const ListByVarietal: React.FC<ListByVarietalT> = ({ history }): JSX.Element => {
   const query = useQueryParam()
-
   const { loading, data, error } = useQuery(fetchWinesByGrape, {
     variables: { varietal: query.get('grape') },
   })
@@ -28,7 +27,7 @@ const ListByVarietal: React.FC<ListByVarietalT> = ({ history }): JSX.Element => 
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <WineGridList data={data.wines} />
+      <WineGridList data={data.wines} title={query.get('grape')}/>
     </>
   )
 }
