@@ -27,6 +27,14 @@ export const fetchAllVintages = gql`
   }
 `
 
+export const fetchAllRegions = gql`
+  {
+    regions {
+      region
+    }
+  }
+`
+
 export const fetchWinesByGrape = gql`
   query wines($varietal: String!) {
     wines(varietal: $varietal) {
@@ -47,6 +55,33 @@ export const fetchWinesByVintage = gql`
       image
       varietal
       winery
+    }
+  }
+`
+
+export const fetchWinesByRegion = gql`
+  query wines($region: String!) {
+    wines(region: $region) {
+      id
+      name
+      image
+      varietal
+      winery
+    }
+  }
+`
+
+export const fetchWine = gql`
+  query wines($id: String!) {
+    wines(id: $id) {
+      name
+      winery
+      vintage
+      price
+      varietal
+      description
+      image
+      region
     }
   }
 `
