@@ -5,6 +5,8 @@ import ListVarietals from './components/Varietals/ListVarietals'
 import ListByVarietal from './components/Varietals/ListByVarietal'
 import ListVintages from './components/Vintage/ListVintages'
 import ListByVintage from './components/Vintage/ListByVintage'
+import ListRegions from './components/Region/ListRegions'
+import ListByRegions from './components/Region/ListByRegion'
 import Navigation from './components/Navigation'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -30,9 +32,11 @@ const App: React.FC = (): JSX.Element => {
           <Switch>
             <Route path="/varietals" exact component={ListVarietals} />
             <Route path="/vintages" exact component={ListVintages} />
+            <Route path="/regions" exact component={ListRegions} />
 
             <Route path="/varietal" component={ListByVarietal} />
             <Route path="/vintage" component={ListByVintage} />
+            <Route path="/region" component={ListByRegions} />
 
             <Route path="/wine/:id" component={WineInfo} />
             <Route path="/" />
