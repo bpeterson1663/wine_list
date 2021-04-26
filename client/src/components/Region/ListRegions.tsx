@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   gridList: {
     width: 900,
@@ -43,7 +43,9 @@ const ListRegions: React.FC<ListRegionsT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <Typography variant="h6" className={classes.header}>Regions</Typography>
+      <Typography variant="h6" className={classes.header}>
+        Regions
+      </Typography>
       <Container className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           {data.regions.map((area: { region: string }) => (

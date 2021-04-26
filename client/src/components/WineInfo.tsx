@@ -9,7 +9,7 @@ import { fetchWine } from '../queries/wines'
 
 const useStyles = makeStyles(() => ({
   wineBottle: {
-    width: '120px',
+    maxWidth: '400px',
     height: '400px',
   },
   container: {
@@ -35,7 +35,7 @@ const WineInfo: React.FC<WineInfoT> = ({ history }): JSX.Element => {
   const classes = useStyles()
   if (loading) return <div>...Loading</div>
   if (error) return <div>An error occured {error.message}</div>
-
+  console.log('data: ', data)
   const wine = data.wines[0]
   return (
     <>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   gridList: {
     width: 900,
@@ -30,47 +30,49 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255, 255, 255, 0.54)',
   },
   wineBottle: {
-    width: '120px',
+    maxWidth: '400px',
     height: '400px',
   },
 }))
 
 interface WineGridListT {
-  data: WineT[],
+  data: WineT[]
   title: string | null
 }
 const WineGridList: React.FC<WineGridListT> = ({ data, title }): JSX.Element => {
   const classes = useStyles()
   return (
     <>
-    <Typography variant="h6" className={classes.header}>{title}</Typography>
-    <Container className={classes.root}>
-      <GridList cellHeight={400} className={classes.gridList}>
-        {data.map((wine: WineT) => (
-          <GridListTile key={wine.id}>
-            <div className={classes.imageContainer}>
-              <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
-            </div>
-            <GridListTileBar
-              title={`${wine.name} - ${wine.winery}`}
-              actionIcon={
-                <Link to={`/wine/${wine.id}`}>
-                  <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
-                    <InfoIcon />
-                  </IconButton>
-                </Link>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </Container>
+      <Typography variant="h6" className={classes.header}>
+        {title}
+      </Typography>
+      <Container className={classes.root}>
+        <GridList cellHeight={400} className={classes.gridList}>
+          {data.map((wine: WineT) => (
+            <GridListTile key={wine.id}>
+              <div className={classes.imageContainer}>
+                <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+              </div>
+              <GridListTileBar
+                title={`${wine.name} - ${wine.winery}`}
+                actionIcon={
+                  <Link to={`/wine/${wine.id}`}>
+                    <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                  </Link>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </Container>
     </>
   )
 }
 
 WineGridList.propTypes = {
   data: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 export default WineGridList

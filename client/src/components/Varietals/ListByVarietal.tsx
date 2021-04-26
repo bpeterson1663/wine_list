@@ -27,7 +27,7 @@ const ListByVarietal: React.FC<ListByVarietalT> = ({ history }): JSX.Element => 
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <WineGridList data={data.wines} title={query.get('grape')}/>
+      <WineGridList data={data.wines} title={query.get('grape')} />
     </>
   )
 }

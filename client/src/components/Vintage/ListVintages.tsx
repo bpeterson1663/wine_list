@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   gridList: {
     width: 900,
@@ -43,7 +43,9 @@ const ListVintages: React.FC<ListVintagesT> = ({ history }): JSX.Element => {
       <IconButton onClick={() => history.goBack()}>
         <ArrowBackIcon />
       </IconButton>
-      <Typography variant="h6" className={classes.header}>Vintages</Typography>
+      <Typography variant="h6" className={classes.header}>
+        Vintages
+      </Typography>
       <Container className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           {data.vintages.map((year: { vintage: string }) => (
