@@ -3,21 +3,14 @@ const WineType = require('./types/WineType')
 const VarietalType = require('./types/VarietalType')
 const VintageType = require('./types/VintageType')
 const RegionType = require('./types/RegionType')
-const { Client } = require('pg')
-const { selectAllWines, selectWineByVarietal, selectWineByVintage, selectWineByRegion } = require('../sql/queries')
-
-const client = new Client({
-  host: '0.0.0.0', //TODO: dynamically set to db for docker-compose
-  port: 5432,
-  db: 'winedb',
-})
-client.connect((err) => {
-  if (err) {
-    console.error('connection error', err.stack)
-  } else {
-    console.log('connected')
-  }
-})
+const Wine = require('../db/models/Wine')
+const {
+  selectAllWines,
+  selectWineByVarietal,
+  selectWineByRegion,
+  selectWineByVintage,
+  selectWineById,
+} = require('../sql/queries')
 
 const { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString } = graphql
 
@@ -26,50 +19,42 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     wines: {
       type: new GraphQLList(WineType),
-      args: { varietal: { type: GraphQLString }, id: { type: GraphQLString }, vintage: { type: GraphQLString }, region: { type: GraphQLString } },
+      args: {
+        varietal: { type: GraphQLString },
+        id: { type: GraphQLString },
+        vintage: { type: GraphQLString },
+        region: { type: GraphQLString },
+      },
       resolve: (parentValue, args) => {
         if (args.varietal) {
-          if (args.varietal === 'All Varietals') {
-            return client.query(selectAllWines).then((res) => res.rows)
-          } else {
-            return client.query(selectWineByVarietal(args.varietal)).then((res) => res.rows)
-          }
-        } else if(args.region) {
-          return client.query(selectWineByRegion(args.region)).then((res) => res.rows)
+          return args.varietal === 'All Varietals' ? selectAllWines() : selectWineByVarietal(args.varietal)
+        } else if (args.region) {
+          return selectWineByRegion(args.region)
         } else if (args.vintage) {
-          return client.query(selectWineByVintage(args.vintage)).then((res) => res.rows)
+          return selectWineByVintage(args.vintage)
         } else if (args.id) {
-          return client.query(`SELECT * FROM wines WHERE id = '${args.id}'`).then((res) => res.rows)
+          return selectWineById(args.id)
         } else {
-          return client.query(selectAllWines).then((res) => res.rows)
+          return selectAllWines()
         }
       },
     },
     varietals: {
       type: new GraphQLList(VarietalType),
       resolve: () => {
-        return client
-          .query('SELECT DISTINCT varietal FROM wines')
-          .then((res) => res.rows)
-          .catch((err) => console.log('ERROR: ', err))
+        return Wine.distinct('varietal')
       },
     },
     vintages: {
       type: new GraphQLList(VintageType),
       resolve: () => {
-        return client
-          .query('SELECT DISTINCT vintage FROM wines')
-          .then((res) => res.rows)
-          .catch((err) => console.log('ERROR: ', err))
+        return Wine.distinct('vintage')
       },
     },
     regions: {
       type: new GraphQLList(RegionType),
       resolve: () => {
-        return client
-          .query('SELECT DISTINCT region FROM wines')
-          .then((res) => res.rows)
-          .catch((err) => console.log('ERROR: ', err))
+        return Wine.distinct('region')
       },
     },
   },

@@ -1,71 +1,56 @@
-const selectAllWines = `
-    SELECT *
-    FROM wines
-`
-const selectWineByVarietal = (varietal) => {
-  return `
-        SELECT *
-        FROM wines
-        WHERE varietal = '${varietal}'
-    `
+const mongodb = require('mongodb')
+const ObjectId = mongodb.ObjectId
+const Wine = require('../db/models/Wine')
+
+const selectAllWines = () => {
+  return Wine.find({}, (err, items) => {
+    if (err) {
+      return { success: false, error: err }
+    }
+    return { success: true, items: items }
+  })
 }
 
-const selectWineByVintage = (vintage) => {
-  return `
-        SELECT *
-        FROM wines
-        WHERE vintage = '${vintage}'
-    `
+const selectWineByVarietal = (varietal) => {
+  return Wine.find({ varietal: varietal }, (err, items) => {
+    if (err) {
+      return { success: false, error: err }
+    }
+    return { success: true, items: items }
+  })
 }
 
 const selectWineByRegion = (region) => {
-    return `
-        SELECT *
-        FROM wines
-        WHERE region = '${region}'
-    `
+  return Wine.find({ region: region }, (err, items) => {
+    if (err) {
+      return { success: false, error: err }
+    }
+    return { success: true, items: items }
+  })
 }
 
-const createWineTable = `
-    CREATE TABLE wines (
-        id SERIAL,
-        name varchar,
-        winery varchar,
-        vintage varchar,
-        price varchar,
-        varietal varchar,
-        description text,
-        image varchar,
-        notes text
-    );
-`
-// Used for development purposes
-const alterTable = `
-    UPDATE wines 
-    SET region = 'Napa Valley'
-    WHERE region IS NULL;
-
-`
-const insertWine = (name, winery, vintage, varietal, price, description, image) => {
-  return `
-        INSERT INTO wines (name, winery, vintage, varietal, price, description, image)
-        VALUES ('${name}', '${winery}', '${vintage}', '${varietal}', '${price}', '${description}', '${image}')
-    `
+const selectWineByVintage = (vintage) => {
+  return Wine.find({ vintage: vintage }, (err, items) => {
+    if (err) {
+      return { success: false, error: err }
+    }
+    return { success: true, items: items }
+  })
 }
 
-const deleteWine = (id) => {
-  return `
-        DELETE FROM wines WHERE id = ${id}
-    `
+const selectWineById = (id) => {
+  return Wine.find({ _id: new ObjectId(id) }, (err, items) => {
+    if (err) {
+      return { success: false, error: err }
+    }
+    return { success: true, items: items }
+  })
 }
 
 module.exports = {
   selectAllWines,
-  createWineTable,
-  insertWine,
-  alterTable,
-  deleteWine,
   selectWineByVarietal,
   selectWineByVintage,
-  selectWineByRegion
+  selectWineByRegion,
+  selectWineById,
 }

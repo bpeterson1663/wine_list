@@ -139,6 +139,66 @@
       "price": "75",
       "winery": "Stags Leap Wine Cellars",
       "region": "Napa Valley"
+    },
+    {
+      "name": "Èlevèe Vineyard",
+      "vintage": "2019",
+      "varietal": "Pinot Noir",
+      "image": "https://www.pennerash.com/wines/2019-aegrina-vineyard-pinot-noir",
+      "description": "Élevée Vineyard, planted in 1998 and located in the heart of the Dundee Hills sub-AVA, gives us classic characteristics of a sweet textured palate with red fruit and spice. Vineyard owners, Tom and France Fitzpatrick, care for each individual vine, always looking to grow better fruit each vintage for winemakers who source from their site. With limited fruit from this small 4-acre vineyard, we carefully select blocks with clonal plantings of Dijon 115, 777, and Pommard to produce a delicate and well-rounded wine.",
+      "price": "65",
+      "winery": "Penner-Ash",
+      "region": "Dundee Hills"
+    },
+    {
+      "name": "Aegrina Vineyard",
+      "vintage": "2019",
+      "varietal": "Pinot Noir",
+      "image": "https://www.pennerash.com/wines/2019-bella-vida-vineyard-pinot-noir",
+      "description": "Aegrina Vineyard, located in the McMinnville sub-AVA, is one of the most distinct vineyards in our portfolio. The name, Aegrina, loosely translates to 'full of love' - the winemaker's love of the fruit, our vineyard manager's love for the vines, and the love you will feel for this wine at first taste. Lynn and Ron Penner-Ash helped map out the southeast facing slope of the vineyard and assisted with the clonal selection. The site is planted to a variety of Dijon clones, Pommard, and Wädenswil. This diverse planting produces wines that are dark, dense, and texturally sweet.",
+      "price": "65",
+      "winery": "Penner-Ash",
+      "region": "Dundee Hills"
+    },
+    {
+      "name": "Pas De Nom",
+      "vintage": "2018",
+      "varietal": "Pinot Noir",
+      "image": "https://www.pennerash.com/sites/default/files/styles/400x400_square/public/pas-de-nom-pn-btl.jpg?itok=62Wrkf0L",
+      "description": "Pas De Nom loosely translated means 'no name' in the spirit of refined simplicity and nuance. Each year this small production wine sourced from premier vineyards across multiple AVAs aims to represent the unique quality of a specific vintage here in the Willamette Valley. Barrel selected to create a blend with structure, elegance, volume, fruit, and intensity.",
+      "price": "125",
+      "winery": "Penner-Ash",
+      "region": "Dundee Hills"
+    },
+    {
+      "name": "Oregon",
+      "vintage": "2017",
+      "varietal": "Syrah",
+      "image": "https://www.pennerash.com/sites/default/files/styles/400x400_square/public/syrah-btl.jpg?itok=Q75525kR",
+      "description": "In 1999, we began sourcing fruit with an eye to making a unique Oregon Syrah. Over the years, we slowly developed our signature Penner-Ash Syrah style, a balance between structure and sweetness from the warmer southern Oregon vineyards, and blue fruit notes, nice acidity, and freshness from Hood River sourcing.",
+      "price": "36",
+      "winery": "Penner-Ash",
+      "region": "Oregon"
+    },
+    {
+      "name": "Oregon",
+      "vintage": "2019",
+      "varietal": "Viogner",
+      "image": "https://www.pennerash.com/sites/default/files/styles/400x400_square/public/viognier-btl.jpg?itok=2epHhr_E",
+      "description": "We produced our first bottling of this wine in 2000, blown away by how pretty the Viognier fruit was we were seeing in the vineyards, and the flavors that burst from the grape when you popped one into your mouth. We love the uniqueness of this white variety and strive to always create a wine showcasing beautiful fruit, and the delicacy and freshness of our cooler Oregon climate.",
+      "price": "30",
+      "winery": "Penner-Ash",
+      "region": "Oregon"
+    },
+    {
+      "name": "Willamette Valley",
+      "vintage": "2018",
+      "varietal": "Pinot Noir",
+      "image": "https://www.pennerash.com/sites/default/files/styles/400x400_square/public/willamette-vineyard-pn-btl.jpg?itok=c6eSE8sM",
+      "description": "This wine reflects the region’s distinct textures, flavors and terroir, with beautiful elegance and balance. Since the inaugural vintage in 1998, founding winemaker Lynn Penner-Ash has drawn upon longstanding relationships with grower neighbors and friends, to source fruit from the most distinguished vineyards. The 2018 vintage explores six sub-AVAs, culminating in a Pinot Noir emblematic of the Willamette Valley, and of the Penner-Ash winemaking style – a textural experience from start to finish.",
+      "price": "120",
+      "winery": "Penner-Ash",
+      "region": "Willamette Valley"
     }
   ]
 }
