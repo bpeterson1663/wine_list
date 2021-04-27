@@ -10,6 +10,9 @@ const {
   selectWineByRegion,
   selectWineByVintage,
   selectWineById,
+  getVarietals,
+  getVintages,
+  getRegions
 } = require('../sql/queries')
 
 const { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString } = graphql
@@ -27,7 +30,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve: (parentValue, args) => {
         if (args.varietal) {
-          return args.varietal === 'All Varietals' ? selectAllWines() : selectWineByVarietal(args.varietal)
+          return selectWineByVarietal(args.varietal).then((res) => res.items)
         } else if (args.region) {
           return selectWineByRegion(args.region)
         } else if (args.vintage) {
@@ -42,19 +45,19 @@ const RootQuery = new GraphQLObjectType({
     varietals: {
       type: new GraphQLList(VarietalType),
       resolve: () => {
-        return Wine.distinct('varietal')
+        return getVarietals().then(res => res.items)
       },
     },
     vintages: {
       type: new GraphQLList(VintageType),
       resolve: () => {
-        return Wine.distinct('vintage')
+        return getVintages().then(res => res.items)
       },
     },
     regions: {
       type: new GraphQLList(RegionType),
       resolve: () => {
-        return Wine.distinct('region')
+        return getRegions().then(res => res.items)
       },
     },
   },
