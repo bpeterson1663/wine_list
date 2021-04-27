@@ -11,7 +11,7 @@ const WineType = new GraphQLObjectType({
     varietal: { type: GraphQLString },
     price: { type: GraphQLString },
     description: { type: GraphQLString },
-    image: { type: GraphQLString },
+    imageUrl: { type: GraphQLString },
     region: { type: GraphQLString },
   }),
 })

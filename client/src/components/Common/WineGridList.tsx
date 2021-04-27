@@ -51,7 +51,7 @@ const WineGridList: React.FC<WineGridListT> = ({ data, title }): JSX.Element => 
           {data.map((wine: WineT) => (
             <GridListTile key={wine.id}>
               <div className={classes.imageContainer}>
-                <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+                <img className={classes.wineBottle} src={wine.imageUrl} alt={wine.varietal} />
               </div>
               <GridListTileBar
                 title={`${wine.name} - ${wine.winery}`}

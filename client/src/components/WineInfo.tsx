@@ -44,7 +44,7 @@ const WineInfo: React.FC<WineInfoT> = ({ history }): JSX.Element => {
       </IconButton>
       <Container className={classes.container}>
         <Paper elevation={0} className={classes.paperContainer}>
-          <img className={classes.wineBottle} src={wine.image} alt={wine.varietal} />
+          <img className={classes.wineBottle} src={wine.imageUrl} alt={wine.varietal} />
         </Paper>
         <Paper elevation={3} className={classes.paperContainer}>
           <h3>{wine.winery}</h3>

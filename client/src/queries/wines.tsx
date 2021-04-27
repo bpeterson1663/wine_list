@@ -7,7 +7,7 @@ export const fetchAllWines = gql`
       name
       vintage
       varietal
-      image
+      imageUrl
     }
   }
 `
@@ -40,7 +40,7 @@ export const fetchWinesByGrape = gql`
     wines(varietal: $varietal) {
       id
       name
-      image
+      imageUrl
       varietal
       winery
     }
@@ -52,7 +52,7 @@ export const fetchWinesByVintage = gql`
     wines(vintage: $vintage) {
       id
       name
-      image
+      imageUrl
       varietal
       winery
     }
@@ -64,7 +64,7 @@ export const fetchWinesByRegion = gql`
     wines(region: $region) {
       id
       name
-      image
+      imageUrl
       varietal
       winery
     }
@@ -80,7 +80,7 @@ export const fetchWine = gql`
       price
       varietal
       description
-      image
+      imageUrl
       region
     }
   }
