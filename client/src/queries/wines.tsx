@@ -8,6 +8,7 @@ export const fetchAllWines = gql`
       vintage
       varietal
       imageUrl
+      winery
     }
   }
 `
