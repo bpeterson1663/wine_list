@@ -40,7 +40,7 @@ const ListVarietals: React.FC<ListVarietalsT> = ({ history }): JSX.Element => {
   if (loading) return <div>...Loading</div>
   if (error) return <div>An error occured {error.message}</div>
 
-  const varietals: Varietal[] = [new Varietal('All Varietals')]
+  const varietals: Varietal[] = []
   data.varietals.forEach((varietal: Varietal) => varietals.push(new Varietal(varietal.varietal)))
 
   return (
