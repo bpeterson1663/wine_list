@@ -3,7 +3,7 @@ const WineType = require('./types/WineType')
 const VarietalType = require('./types/VarietalType')
 const VintageType = require('./types/VintageType')
 const RegionType = require('./types/RegionType')
-const Wine = require('../db/models/Wine')
+
 const {
   selectAllWines,
   selectWineByVarietal,
