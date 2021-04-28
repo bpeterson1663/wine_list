@@ -33,4 +33,19 @@ export default [
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Malbec_grapes.jpg/1200px-Malbec_grapes.jpg',
     description: '',
   },
+  {
+    varietal: 'Syrah',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Shiraz_Grapes.jpg/440px-Shiraz_Grapes.jpg',
+    description: ''
+  },
+  {
+    varietal: 'Pinot Noir',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Grape_near_Sancerre.jpg/440px-Grape_near_Sancerre.jpg',
+    description: ''
+  },
+  {
+    varietal: 'Viognier',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Viognier.jpg/440px-Viognier.jpg',
+    description: ''
+  }
 ]
