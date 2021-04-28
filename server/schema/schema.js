@@ -38,7 +38,7 @@ const RootQuery = new GraphQLObjectType({
         } else if (args.id) {
           return selectWineById(args.id).then((res) => res.items)
         } else {
-          return selectAllWines()
+          return selectAllWines().then((res) => res.items)
         }
       },
     },

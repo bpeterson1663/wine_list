@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import Home from './components/Home/Home'
 import ListVarietals from './components/Varietals/ListVarietals'
 import ListByVarietal from './components/Varietals/ListByVarietal'
 import ListVintages from './components/Vintage/ListVintages'
@@ -39,7 +40,7 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/region" component={ListByRegions} />
 
             <Route path="/wine/:id" component={WineInfo} />
-            <Route path="/" />
+            <Route path="/" component={Home}/>
           </Switch>
         </BrowserRouter>
       </ApolloProvider>
