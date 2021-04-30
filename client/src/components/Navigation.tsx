@@ -21,6 +21,9 @@ const Navigation: React.FC = (): JSX.Element => {
         <Link to="/regions" style={{ textDecoration: 'none' }}>
           <Button style={{ color: 'white' }}>Regions</Button>
         </Link>
+        <Link to="/search" style={{ textDecoration: 'none' }}>
+          <Button style={{ color: 'white' }}>Search</Button>
+        </Link>
       </Toolbar>
     </AppBar>
   )

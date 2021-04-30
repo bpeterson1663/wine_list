@@ -86,3 +86,14 @@ export const fetchWine = gql`
     }
   }
 `
+export const searchForWines = gql`
+  query wines($winery: String!) {
+    wines(winery: $winery) {
+      id
+      name
+      imageUrl
+      varietal
+      winery
+    }
+  }
+`

@@ -12,6 +12,7 @@ import Navigation from './components/Navigation'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import WineInfo from './components/WineInfo'
+import Search from './components/Search/Search'
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
@@ -39,8 +40,10 @@ const App: React.FC = (): JSX.Element => {
             <Route path="/vintage" component={ListByVintage} />
             <Route path="/region" component={ListByRegions} />
 
+            <Route path="/search" component={Search} />
+
             <Route path="/wine/:id" component={WineInfo} />
-            <Route path="/" component={Home}/>
+            <Route path="/" component={Home} />
           </Switch>
         </BrowserRouter>
       </ApolloProvider>
