@@ -36,16 +36,17 @@ export default [
   {
     varietal: 'Syrah',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Shiraz_Grapes.jpg/440px-Shiraz_Grapes.jpg',
-    description: ''
+    description: '',
   },
   {
     varietal: 'Pinot Noir',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Grape_near_Sancerre.jpg/440px-Grape_near_Sancerre.jpg',
-    description: ''
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Grape_near_Sancerre.jpg/440px-Grape_near_Sancerre.jpg',
+    description: '',
   },
   {
     varietal: 'Viognier',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Viognier.jpg/440px-Viognier.jpg',
-    description: ''
-  }
+    description: '',
+  },
 ]
