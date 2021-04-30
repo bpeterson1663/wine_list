@@ -77,6 +77,16 @@ const getRegions = async () => {
     }),
   }
 }
+
+const searchForWines = async (winery) => {
+  Wine.createIndex
+  const response = await Wine.find({ $text: { $search: winery } })
+  const items = transformWines(response)
+  return {
+    items: items,
+  }
+}
+
 module.exports = {
   selectAllWines,
   selectWineByVarietal,
@@ -86,4 +96,5 @@ module.exports = {
   getVarietals,
   getVintages,
   getRegions,
+  searchForWines,
 }
