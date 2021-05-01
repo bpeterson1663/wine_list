@@ -87,8 +87,8 @@ export const fetchWine = gql`
   }
 `
 export const searchForWines = gql`
-  query wines($winery: String!) {
-    wines(winery: $winery) {
+  query wines($winery: String!, $name: String!) {
+    wines(winery: $winery, name: $name) {
       id
       name
       imageUrl

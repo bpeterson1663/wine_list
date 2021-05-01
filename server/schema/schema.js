@@ -29,10 +29,11 @@ const RootQuery = new GraphQLObjectType({
         vintage: { type: GraphQLString },
         region: { type: GraphQLString },
         winery: { type: GraphQLString },
+        name: { type: GraphQLString }
       },
       resolve: (parentValue, args) => {
-        if (args.winery) {
-          return searchForWines(args.winery).then((res) => res.items)
+        if (args.winery || args.name) {
+          return searchForWines({winery: args.winery, name: args.name}).then((res) => res.items)
         } else if (args.varietal) {
           return selectWineByVarietal(args.varietal).then((res) => res.items)
         } else if (args.region) {

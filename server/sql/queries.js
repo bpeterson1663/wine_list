@@ -78,9 +78,8 @@ const getRegions = async () => {
   }
 }
 
-const searchForWines = async (winery) => {
-  Wine.createIndex
-  const response = await Wine.find({ $text: { $search: winery } })
+const searchForWines = async ({winery, name}) => {
+  const response = await Wine.find({ $text: { $search: `${winery} ${name}` } })
   const items = transformWines(response)
   return {
     items: items,
