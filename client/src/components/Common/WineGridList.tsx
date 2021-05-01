@@ -54,7 +54,7 @@ const WineGridList: React.FC<WineGridListT> = ({ data, title }): JSX.Element => 
                 <img className={classes.wineBottle} src={wine.imageUrl} alt={wine.varietal} />
               </div>
               <GridListTileBar
-                title={`${wine.name} - ${wine.winery}`}
+                title={`$${wine.price} - ${wine.name}`}
                 actionIcon={
                   <Link to={`/wine/${wine.id}`}>
                     <IconButton aria-label={`info about ${wine.name}`} className={classes.icon}>

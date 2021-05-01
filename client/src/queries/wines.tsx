@@ -41,6 +41,7 @@ export const fetchWinesByGrape = gql`
     wines(varietal: $varietal) {
       id
       name
+      price
       imageUrl
       varietal
       winery
@@ -53,6 +54,7 @@ export const fetchWinesByVintage = gql`
     wines(vintage: $vintage) {
       id
       name
+      price
       imageUrl
       varietal
       winery
@@ -65,6 +67,7 @@ export const fetchWinesByRegion = gql`
     wines(region: $region) {
       id
       name
+      price
       imageUrl
       varietal
       winery
@@ -91,6 +94,7 @@ export const searchForWines = gql`
     wines(winery: $winery, name: $name) {
       id
       name
+      price
       imageUrl
       varietal
       winery

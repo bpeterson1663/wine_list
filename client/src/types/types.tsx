@@ -5,4 +5,5 @@ export interface WineT {
   vintage: string
   varietal: string
   imageUrl: string
+  price: number
 }
