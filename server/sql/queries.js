@@ -78,7 +78,7 @@ const getRegions = async () => {
   }
 }
 
-const searchForWines = async ({winery, name}) => {
+const searchForWines = async ({ winery, name }) => {
   const response = await Wine.find({ $text: { $search: `${winery} ${name}` } })
   const items = transformWines(response)
   return {
