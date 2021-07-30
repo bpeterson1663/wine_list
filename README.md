@@ -3,8 +3,8 @@ A React app using GraphQL and Postgres to display a list of wines and allow user
 
 Three components
 - React Frontend using Typescript
-- GraphQL server to handle querying database
-- Postgres relational database
+- GraphQL server to handle database queries
+- MongoDB database configured from wine_pad
 
 Database
 Three Tables
