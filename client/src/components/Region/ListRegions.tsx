@@ -38,7 +38,7 @@ const ListRegions: React.FC<ListRegionsT> = ({ history }): JSX.Element => {
   const classes = useStyles()
 
   return (
-    <>
+    <Container>
       {loading && <LinearProgress />}
       {error && <div>An error occured {error.message}</div>}
       {!loading && (
@@ -69,7 +69,7 @@ const ListRegions: React.FC<ListRegionsT> = ({ history }): JSX.Element => {
           </Container>
         </>
       )}
-    </>
+    </Container>
   )
 }
 ListRegions.propTypes = {

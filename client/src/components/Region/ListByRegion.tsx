@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
-import { IconButton } from '@material-ui/core'
+import { IconButton, Container } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import WineGridList from '../Common/WineGridList'
 import { fetchWinesByRegion } from '../../queries/wines'
@@ -23,7 +23,7 @@ const ListByRegion: React.FC<ListByRegionT> = ({ history }): JSX.Element => {
   })
 
   return (
-    <>
+    <Container>
       {loading && <LinearProgress />}
       {error && <div>An error occured {error.message}</div>}
       {!loading && (
@@ -34,7 +34,7 @@ const ListByRegion: React.FC<ListByRegionT> = ({ history }): JSX.Element => {
           <WineGridList data={data.wines} title={query.get('area')} />
         </>
       )}
-    </>
+    </Container>
   )
 }
 ListByRegion.propTypes = {

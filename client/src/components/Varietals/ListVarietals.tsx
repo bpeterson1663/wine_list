@@ -3,7 +3,15 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton, Typography } from '@material-ui/core'
+import {
+  Container,
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  IconButton,
+  Typography,
+  LinearProgress,
+} from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
 import { fetchAllVarietals } from '../../queries/wines'
 import Varietal from '../../models/Varietal'
@@ -34,43 +42,46 @@ interface ListVarietalsT {
 }
 
 const ListVarietals: React.FC<ListVarietalsT> = ({ history }): JSX.Element => {
-  const { loading, data, error } = useQuery(fetchAllVarietals)
+  const { loading, data = { varietals: [] }, error } = useQuery(fetchAllVarietals)
   const classes = useStyles()
-
-  if (loading) return <div>...Loading</div>
-  if (error) return <div>An error occured {error.message}</div>
 
   const varietals: Varietal[] = []
   data.varietals.forEach((varietal: Varietal) => varietals.push(new Varietal(varietal.varietal)))
 
   return (
-    <>
-      <IconButton onClick={() => history.goBack()}>
-        <ArrowBackIcon />
-      </IconButton>
-      <Typography variant="h6" className={classes.header}>
-        Varietals
-      </Typography>
-      <Container className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          {varietals.map((grape: Varietal) => (
-            <GridListTile key={grape.varietal}>
-              <img src={grape.image} alt={grape.varietal} />
-              <GridListTileBar
-                title={grape.varietal}
-                actionIcon={
-                  <Link to={`/varietal?grape=${grape.varietal}`}>
-                    <IconButton aria-label={`info about ${grape.varietal}`} className={classes.icon}>
-                      <InfoIcon />
-                    </IconButton>
-                  </Link>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </Container>
-    </>
+    <Container>
+      {loading && <LinearProgress />}
+      {error && <div>An error occured {error.message}</div>}
+      {!loading && (
+        <>
+          <IconButton onClick={() => history.goBack()}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.header}>
+            Varietals
+          </Typography>
+          <Container className={classes.root}>
+            <GridList cellHeight={180} className={classes.gridList}>
+              {varietals.map((grape: Varietal) => (
+                <GridListTile key={grape.varietal}>
+                  <img src={grape.image} alt={grape.varietal} />
+                  <GridListTileBar
+                    title={grape.varietal}
+                    actionIcon={
+                      <Link to={`/varietal?grape=${grape.varietal}`}>
+                        <IconButton aria-label={`info about ${grape.varietal}`} className={classes.icon}>
+                          <InfoIcon />
+                        </IconButton>
+                      </Link>
+                    }
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
+          </Container>
+        </>
+      )}
+    </Container>
   )
 }
 ListVarietals.propTypes = {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
-import { IconButton } from '@material-ui/core'
+import { IconButton, LinearProgress, Container } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import WineGridList from '../Common/WineGridList'
 import { fetchWinesByVintage } from '../../queries/wines'
@@ -20,15 +20,19 @@ const ListByVintage: React.FC<ListByVintageT> = ({ history }): JSX.Element => {
   const { loading, data, error } = useQuery(fetchWinesByVintage, {
     variables: { vintage: query.get('year') },
   })
-  if (loading) return <div>...Loading</div>
-  if (error) return <div>An error occured {error.message}</div>
   return (
-    <>
-      <IconButton onClick={() => history.goBack()}>
-        <ArrowBackIcon />
-      </IconButton>
-      <WineGridList data={data.wines} title={query.get('year')} />
-    </>
+    <Container>
+      {loading && <LinearProgress />}
+      {error && <div>An error occured {error.message}</div>}
+      {!loading && (
+        <>
+          <IconButton onClick={() => history.goBack()}>
+            <ArrowBackIcon />
+          </IconButton>
+          <WineGridList data={data.wines} title={query.get('year')} />
+        </>
+      )}
+    </Container>
   )
 }
 ListByVintage.propTypes = {

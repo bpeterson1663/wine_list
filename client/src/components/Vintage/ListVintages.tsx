@@ -5,7 +5,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import InfoIcon from '@material-ui/icons/Info'
 import { fetchAllVintages } from '../../queries/wines'
-import { Container, GridList, GridListTile, GridListTileBar, IconButton, Typography } from '@material-ui/core'
+import {
+  Container,
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  IconButton,
+  Typography,
+  LinearProgress,
+} from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 const useStyles = makeStyles((theme) => ({
@@ -36,35 +44,39 @@ const ListVintages: React.FC<ListVintagesT> = ({ history }): JSX.Element => {
   const { loading, data, error } = useQuery(fetchAllVintages)
   const classes = useStyles()
 
-  if (loading) return <div>...Loading</div>
-  if (error) return <div>An error occured {error.message}</div>
   return (
-    <>
-      <IconButton onClick={() => history.goBack()}>
-        <ArrowBackIcon />
-      </IconButton>
-      <Typography variant="h6" className={classes.header}>
-        Vintages
-      </Typography>
-      <Container className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          {data.vintages.map((year: { vintage: string }) => (
-            <GridListTile key={year.vintage}>
-              <GridListTileBar
-                title={year.vintage}
-                actionIcon={
-                  <Link to={`/vintage?year=${year.vintage}`}>
-                    <IconButton aria-label={`info about ${year.vintage}`} className={classes.icon}>
-                      <InfoIcon />
-                    </IconButton>
-                  </Link>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </Container>
-    </>
+    <Container>
+      {loading && <LinearProgress />}
+      {error && <div>An error occured {error.message}</div>}
+      {!loading && (
+        <>
+          <IconButton onClick={() => history.goBack()}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.header}>
+            Vintages
+          </Typography>
+          <Container className={classes.root}>
+            <GridList cellHeight={180} className={classes.gridList}>
+              {data.vintages.map((year: { vintage: string }) => (
+                <GridListTile key={year.vintage}>
+                  <GridListTileBar
+                    title={year.vintage}
+                    actionIcon={
+                      <Link to={`/vintage?year=${year.vintage}`}>
+                        <IconButton aria-label={`info about ${year.vintage}`} className={classes.icon}>
+                          <InfoIcon />
+                        </IconButton>
+                      </Link>
+                    }
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
+          </Container>
+        </>
+      )}
+    </Container>
   )
 }
 ListVintages.propTypes = {
