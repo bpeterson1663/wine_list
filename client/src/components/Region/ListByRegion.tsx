@@ -6,6 +6,7 @@ import { IconButton } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import WineGridList from '../Common/WineGridList'
 import { fetchWinesByRegion } from '../../queries/wines'
+import { LinearProgress } from '@material-ui/core'
 
 function useQueryParam() {
   return new URLSearchParams(useLocation().search)
@@ -20,14 +21,19 @@ const ListByRegion: React.FC<ListByRegionT> = ({ history }): JSX.Element => {
   const { loading, data, error } = useQuery(fetchWinesByRegion, {
     variables: { region: query.get('area') },
   })
-  if (loading) return <div>...Loading</div>
-  if (error) return <div>An error occured {error.message}</div>
+
   return (
     <>
-      <IconButton onClick={() => history.goBack()}>
-        <ArrowBackIcon />
-      </IconButton>
-      <WineGridList data={data.wines} title={query.get('area')} />
+      {loading && <LinearProgress />}
+      {error && <div>An error occured {error.message}</div>}
+      {!loading && (
+        <>
+          <IconButton onClick={() => history.goBack()}>
+            <ArrowBackIcon />
+          </IconButton>
+          <WineGridList data={data.wines} title={query.get('area')} />
+        </>
+      )}
     </>
   )
 }
